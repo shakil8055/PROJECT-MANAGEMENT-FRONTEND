@@ -31,7 +31,7 @@ const Login = () => {
         <input
           type="email"
           id="email"
-          placeholder="tanisha@express.dev"
+          placeholder="mohamedshakil883@gmail.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="bg-transparent border border-slate-500 py-3 px-5 rounded-xl outline-none focus:border-sky-400 duration-300"
