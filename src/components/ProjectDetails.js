@@ -45,7 +45,7 @@ const ProjectDetails = ({ project }) => {
   };
 
   return (
-    <div className="project bg-slate-800 p-5 rounded-xl border border-slate-700 flex flex-col gap-5 w-[30rem]">
+    <div className="project bg-slate-800 mx-10 p-5 rounded-xl border border-slate-700 flex flex-col gap-5 w-[30rem]">
       <div className="project-top">
         <span className="text-sky-400">{project._id}</span>
         <h3 className="text-3xl font-medium truncate">{project.title}</h3>
