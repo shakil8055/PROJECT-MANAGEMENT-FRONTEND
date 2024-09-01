@@ -12,8 +12,8 @@ const Navbar = () => {
 
   return (
     <div className="navbar container mx-auto h-20 flex items-center justify-between border-b border-sky-900">
-      <Link to="/" className="logo text-3xl mx-5 font-bold text-red-500">
-        PROXIMA
+      <Link to="/" className="logo text-3xl mx-5 font-bold text-sky-500">
+        PRO-MANAGE
       </Link>
 
       <nav className="flex gap-5">
