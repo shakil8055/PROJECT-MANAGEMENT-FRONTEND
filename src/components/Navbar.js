@@ -12,8 +12,8 @@ const Navbar = () => {
 
   return (
     <div className="navbar container mx-auto h-20 flex items-center justify-between border-b border-sky-900">
-      <Link to="/" className="logo text-2xl font-medium text-sky-400">
-        SHA PROJECT MANAGEMENT TOOL
+      <Link to="/" className="logo text-3xl mx-5 font-bold text-red-500">
+        PROXIMA
       </Link>
 
       <nav className="flex gap-5">
@@ -29,13 +29,13 @@ const Navbar = () => {
         )}
 
         {user && (
-          <div className="flex gap-5">
-            <span>{user.email}</span>
+          <div className="flex content-center gap-5 mr-5">
+            <span className="content-center">{user.email}</span>
 
             <button
               onClick={handleLogout}
               type="submit"
-              className="bg-rose-500 text-white py-3 px-5 rounded-lg hover:bg-sky-50 hover:text-slate-900 duration-300 capitalize"
+              className="bg-red-500 text-white py-2 px-2 rounded-lg hover:bg-sky-50 hover:text-slate-900 duration-300 capitalize"
             >
               Logout
             </button>

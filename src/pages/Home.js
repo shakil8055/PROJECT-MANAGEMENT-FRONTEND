@@ -34,11 +34,11 @@ const Home = () => {
 
   return (
     <div className="home container mx-auto py-20 grid grid-cols-3 gap-10">
-      <div className="home-left col-span-2">
-        <h2 className="text-4xl font-medium text-sky-400 mb-10">
+      <div className="home-left col-span-2 place-content-stretch">
+        <h2 className="text-2xl font-medium mx-5 text-sky-400 mb-10 underline">
           {projects.length < 1 ? "No Projects" : "All Projects"}
         </h2>
-        <div className="projects-wrapper flex gap-10 flex-wrap">
+        <div className="projects-wrapper flex gap-5 flex-wrap">
           {projects &&
             projects.map((project) => (
               <ProjectDetails key={project._id} project={project} />
