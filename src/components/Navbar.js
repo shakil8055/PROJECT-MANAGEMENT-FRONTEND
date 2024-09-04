@@ -11,38 +11,42 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar container mx-auto h-20 flex items-center justify-between border-b border-sky-900">
-      <Link to="/" className="logo text-3xl mx-5 font-bold text-sky-500">
-        PRO-MANAGE
-      </Link>
+<div className="navbar container mx-auto h-20 flex flex-col md:flex-row items-center justify-between border-b border-sky-900">
+  <Link to="/" className="logo text-3xl mx-5 font-bold text-sky-500">
+    PRO-MANAGE
+  </Link>
 
-      <nav className="flex gap-5">
-        {!user && (
-          <div className="flex mr-5 gap-5">
-            <Link to="/login" className="hover:text-sky-400 duration-300">
-              Login
-            </Link>
-            <Link to="/signup" className="hover:text-sky-400 duration-300">
-              Signup
-            </Link>
-          </div>
-        )}
+  <nav className="flex flex-col md:flex-row gap-5">
+    {!user ? (
+      <div className="flex flex-col md:flex-row gap-5 mr-5">
+        <Link to="/login" className="hover:text-sky-400 duration-300">
+          Login
+        </Link>
+        <Link to="/signup" className="hover:text-sky-400 duration-300">
+          Signup
+        </Link>
+      </div>
+    ) : (
+      <div className="flex flex-col md:flex-row items-center gap-5 mr-5">
+        <span className="text-sm md:text-base">{user.email}</span>
 
-        {user && (
-          <div className="flex content-center gap-5 mr-5">
-            <span className="content-center">{user.email}</span>
+        <button
+          onClick={handleLogout}
+          type="submit"
+          className="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-sky-50 hover:text-slate-900 duration-300 capitalize"
+        >
+          Logout
+        </button>
+      </div>
+    )}
+  </nav>
+</div>
 
-            <button
-              onClick={handleLogout}
-              type="submit"
-              className="bg-red-500 text-white py-2 px-2 rounded-lg hover:bg-sky-50 hover:text-slate-900 duration-300 capitalize"
-            >
-              Logout
-            </button>
-          </div>
-        )}
-      </nav>
-    </div>
+
+  
+
+
+  
   );
 };
 
