@@ -160,7 +160,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
         >
           Description
         </label>
-        <input
+        <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           type="text"

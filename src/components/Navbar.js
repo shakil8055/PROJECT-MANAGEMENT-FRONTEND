@@ -18,7 +18,7 @@ const Navbar = () => {
 
       <nav className="flex gap-5">
         {!user && (
-          <div className="flex gap-5">
+          <div className="flex mr-5 gap-5">
             <Link to="/login" className="hover:text-sky-400 duration-300">
               Login
             </Link>

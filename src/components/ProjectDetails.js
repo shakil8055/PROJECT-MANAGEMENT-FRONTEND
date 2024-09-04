@@ -53,9 +53,11 @@ const ProjectDetails = ({ project }) => {
         <span className="uppercase text-xs tracking-widest text-slate-500 font-medium">
           {project.tech}
         </span>
+        <div className="text-slate-300 mb-3"><span>{project.description}</span></div>
+        <hr></hr>
       </div>
 
-      <div className="project-mid text-slate-300 flex gap-10">
+      <div className="project-mid mt-2 text-slate-300 flex gap-5">
         <div className="left flex flex-col">
           <span>Budget : {currencyFormatter(project.budget)}</span>
           <span>
@@ -67,7 +69,7 @@ const ProjectDetails = ({ project }) => {
         </div>
         <div className="right flex flex-col">
           <span>Team Leader : {project.manager}</span>
-          <span>Description : {project.description}</span>
+          
           <span>
             Duration :{" "}
             {`${project.duration} week${project.duration === 1 ? "" : "s"}`}
@@ -75,7 +77,7 @@ const ProjectDetails = ({ project }) => {
         </div>
       </div>
 
-      <div className="project-bottom flex gap-5">
+      <div className="project-bottom flex mt-2 gap-5">
         <button
           onClick={handleUpdate}
           className="bg-sky-400 text-slate-900 py-2 px-5 rounded shadow-xl hover:bg-sky-50 duration-300"
