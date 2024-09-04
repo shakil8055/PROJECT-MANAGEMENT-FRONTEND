@@ -59,9 +59,37 @@ const Signup = () => {
       <button
         disabled={loading}
         type="submit"
-        className="bg-sky-400 text-slate-900 py-3 rounded-xl hover:bg-sky-500 duration-300 mt-3"
+        className={`flex items-center justify-center gap-2 py-3 rounded-xl mt-3 w-full duration-300
+          ${loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-sky-400 hover:bg-sky-500'} 
+          text-slate-900`}
       >
-        Sign Up
+        {loading ? (
+          <>
+            <svg
+              className="animate-spin h-5 w-5 text-slate-900"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              />
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+              />
+            </svg>
+            <span>Signing Up...</span>
+          </>
+        ) : (
+          'Sign Up'
+        )}
       </button>
 
       {error && (

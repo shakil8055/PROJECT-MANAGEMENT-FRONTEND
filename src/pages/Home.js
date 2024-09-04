@@ -33,20 +33,29 @@ const Home = () => {
   }, [dispatch, user]);
 
   return (
-    <div className="home container mx-auto py-20 grid grid-cols-3 gap-10">
-      <div className="home-left col-span-2 place-content-stretch">
-        <h2 className="text-2xl font-medium mx-5 text-sky-400 mb-10 underline">
-          {projects.length < 1 ? "No Projects" : "All Projects"}
-        </h2>
-        <div className="projects-wrapper flex gap-5 flex-wrap">
-          {projects &&
-            projects.map((project) => (
-              <ProjectDetails key={project._id} project={project} />
-            ))}
-        </div>
-      </div>
-      <ProjectForm />
+    
+<div className="home container mx-auto py-10 px-4 sm:px-8 md:px-12 lg:px-16 lg:py-20 grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-10">
+  {/* Left Section: Projects List */}
+  <div className="home-left col-span-1 lg:col-span-2 mx-auto">
+    <h2 className="text-xl sm:text-2xl font-medium mb-6 lg:mb-10 text-sky-400 underline text-center">
+      {projects.length < 1 ? "No Projects" : "All Projects"}
+    </h2>
+    <div className="projects-wrapper grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 justify-items-center">
+      {projects &&
+        projects.map((project) => (
+          <ProjectDetails key={project._id} project={project} />
+        ))}
     </div>
+  </div>
+  
+  {/* Right Section: Project Form */}
+  <div className="project-form col-span-1 mt-10 lg:mt-0">
+    <ProjectForm />
+  </div>
+</div>
+
+
+
   );
 };
 

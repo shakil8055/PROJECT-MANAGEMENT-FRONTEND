@@ -125,7 +125,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
           type="text"
           placeholder="e.g. e-commerce website"
           id="title"
-          className={`bg-transparent border mr-10 py-3 px-5 rounded-lg outline-none focus:border-sky-400 duration-300 ${
+          className={`bg-transparent border py-3 px-5 rounded-lg outline-none focus:border-sky-400 duration-300 ${
             emptyFields?.includes("title")
               ? "border-rose-500"
               : "border-slate-500"
@@ -146,7 +146,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
           type="text"
           placeholder="e.g. react.js, redux, node.js"
           id="tech"
-          className={`bg-transparent border mr-10 py-3 px-5 rounded-lg outline-none focus:border-sky-400 duration-300 ${
+          className={`bg-transparent border py-3 px-5 rounded-lg outline-none focus:border-sky-400 duration-300 ${
             emptyFields?.includes("tech")
               ? "border-rose-500"
               : "border-slate-500"
@@ -166,7 +166,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
           type="text"
           placeholder="Describe about the project"
           id="description"
-          className={`bg-transparent border mr-10 py-3 px-5 rounded-lg outline-none focus:border-sky-400 duration-300 ${
+          className={`bg-transparent border py-3 px-5 rounded-lg outline-none focus:border-sky-400 duration-300 ${
             emptyFields?.includes("description")
               ? "border-rose-500"
               : "border-slate-500"
@@ -186,7 +186,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
           type="number"
           placeholder="e.g. 500"
           id="budget"
-          className={`bg-transparent border mr-10 py-3 px-5 rounded-lg outline-none focus:border-sky-400 duration-300 ${
+          className={`bg-transparent border py-3 px-5 rounded-lg outline-none focus:border-sky-400 duration-300 ${
             emptyFields?.includes("budget")
               ? "border-rose-500"
               : "border-slate-500"
@@ -207,7 +207,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
           type="number"
           placeholder="e.g. 6"
           id="duration"
-          className={`bg-transparent border mr-10 py-3 px-5 rounded-lg outline-none focus:border-sky-400 duration-300 ${
+          className={`bg-transparent border py-3 px-5 rounded-lg outline-none focus:border-sky-400 duration-300 ${
             emptyFields?.includes("duration")
               ? "border-rose-500"
               : "border-slate-500"
@@ -228,7 +228,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
           type="text"
           placeholder="e.g. Mohamed shakil"
           id="manager"
-          className={`bg-transparent border mr-10 py-3 px-5 rounded-lg outline-none focus:border-sky-400 duration-300 ${
+          className={`bg-transparent border py-3 px-5 rounded-lg outline-none focus:border-sky-400 duration-300 ${
             emptyFields?.includes("manager")
               ? "border-rose-500"
               : "border-slate-500"
@@ -240,12 +240,12 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
 
       <button
         type="submit"
-        className="bg-sky-400 text-slate-900 mr-10 py-3 px-5  rounded-lg hover:bg-sky-50 duration-300 capitalize"
+        className="bg-sky-400 text-slate-900 py-3 px-5  rounded-lg hover:bg-sky-50 duration-300 capitalize"
       >
         {project ? "Confirm Update" : "Add project"}
       </button>
       {error && (
-        <p className="bg-rose-500/20 rounded-lg p-5 mr-10 text-rose-500 border border-rose-500">
+        <p className="bg-rose-500/20 rounded-lg p-5 text-rose-500 border border-rose-500">
           {error}
         </p>
       )}
