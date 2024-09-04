@@ -12,7 +12,7 @@ export const useSignup = () => {
     setError(null);
 
     const res = await fetch(
-      `${process.env.REACT_APP_BASE_URL}/api/user/signup`,
+      `https://project-management-backend-7s6b.onrender.com/api/user/signup`,
       {
         method: "POST",
         headers: {

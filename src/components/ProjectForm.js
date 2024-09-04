@@ -8,7 +8,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
   const [budget, setBudget] = useState(project ? project.budget : "");
   const [duration, setDuration] = useState(project ? project.duration : "");
   const [manager, setManager] = useState(project ? project.manager : "");
-  const [dev, setDev] = useState(project ? project.dev : "");
+  const [description, setDescription] = useState(project ? project.description : "");
 
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
@@ -25,13 +25,13 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
     }
 
     // data
-    const projectObj = { title, tech, budget, duration, manager, dev };
+    const projectObj = { title, tech, budget, duration, manager, description };
 
     // if there is no project, send post req
     if (!project) {
       // sending post request
       const res = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/api/projects`,
+        `https://project-management-backend-7s6b.onrender.com/api/projects`,
         {
           method: "POST",
           headers: {
@@ -56,7 +56,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
         setBudget("");
         setDuration("");
         setManager("");
-        setDev("");
+        setDescription("");
         setError(null);
         setEmptyFields([]);
         // project post successfully
@@ -153,7 +153,26 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
           }`}
         />
       </div>
-
+      <div className="form-control flex flex-col gap-2">
+        <label
+          htmlFor="description"
+          className="cursor-pointer hover:text-sky-400 duration-300"
+        >
+          Description
+        </label>
+        <input
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          type="text"
+          placeholder="Describe about the project"
+          id="description"
+          className={`bg-transparent border mr-10 py-3 px-5 rounded-lg outline-none focus:border-sky-400 duration-300 ${
+            emptyFields?.includes("description")
+              ? "border-rose-500"
+              : "border-slate-500"
+          }`}
+        />
+      </div>
       <div className="form-control flex flex-col gap-2">
         <label
           htmlFor="budget"
@@ -201,7 +220,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
           htmlFor="manager"
           className="cursor-pointer hover:text-sky-400 duration-300"
         >
-          Manager
+          Team Leader
         </label>
         <input
           value={manager}
@@ -217,35 +236,16 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
         />
       </div>
 
-      <div className="form-control flex flex-col gap-2">
-        <label
-          htmlFor="developer"
-          className="cursor-pointer hover:text-sky-400 duration-300"
-        >
-          Developers
-        </label>
-        <input
-          value={dev}
-          onChange={(e) => setDev(e.target.value)}
-          type="number"
-          placeholder="e.g. 10"
-          id="developer"
-          className={`bg-transparent border mr-10 py-3 px-5 rounded-lg outline-none focus:border-sky-400 duration-300 ${
-            emptyFields?.includes("dev")
-              ? "border-rose-500"
-              : "border-slate-500"
-          }`}
-        />
-      </div>
+      
 
       <button
         type="submit"
-        className="bg-sky-400 text-slate-900 mr-10 py-3 rounded-lg hover:bg-sky-50 duration-300 capitalize"
+        className="bg-sky-400 text-slate-900 mr-10 py-3 px-5  rounded-lg hover:bg-sky-50 duration-300 capitalize"
       >
         {project ? "Confirm Update" : "Add project"}
       </button>
       {error && (
-        <p className="bg-rose-500/20 rounded-lg p-5 text-rose-500 border border-rose-500">
+        <p className="bg-rose-500/20 rounded-lg p-5 mr-10 text-rose-500 border border-rose-500">
           {error}
         </p>
       )}

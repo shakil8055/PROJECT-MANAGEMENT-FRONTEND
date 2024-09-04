@@ -18,7 +18,7 @@ const ProjectDetails = ({ project }) => {
     }
 
     const res = await fetch(
-      `${process.env.REACT_APP_BASE_URL}/api/projects/${project._id}`,
+      `https://project-management-backend-7s6b.onrender.com/api/projects/${project._id}`,
       {
         method: "DELETE",
         headers: {
@@ -66,8 +66,8 @@ const ProjectDetails = ({ project }) => {
           </span>
         </div>
         <div className="right flex flex-col">
-          <span>Manager : {project.manager}</span>
-          <span>Developer : {project.dev}</span>
+          <span>Team Leader : {project.manager}</span>
+          <span>Description : {project.description}</span>
           <span>
             Duration :{" "}
             {`${project.duration} week${project.duration === 1 ? "" : "s"}`}
