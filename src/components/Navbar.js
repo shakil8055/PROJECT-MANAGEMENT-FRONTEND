@@ -27,7 +27,7 @@ const Navbar = () => {
         </Link>
       </div>
     ) : (
-      <div className="flex flex-col md:flex-row items-center gap-5 mr-5">
+      <div className="flex md:flex-row items-center justify-between gap-5 mx-5 ">
         <span className="text-sm md:text-base">{user.email}</span>
 
         <button
