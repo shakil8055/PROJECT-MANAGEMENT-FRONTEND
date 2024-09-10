@@ -57,9 +57,10 @@ const ProjectDetails = ({ project }) => {
         <hr></hr>
       </div>
 
-      <div className="project-mid mt-2 text-slate-300 flex gap-5">
+      <div className="project-mid mt-2 flex text-sm text-slate-300 gap-5">
         <div className="left flex flex-col">
           <span>Budget : {currencyFormatter(project.budget)}</span>
+         
           <span>
             Added : {moment(project.createdAt).format("MMM DD, hh:mm A")}
           </span>
@@ -68,8 +69,7 @@ const ProjectDetails = ({ project }) => {
           </span>
         </div>
         <div className="right flex flex-col">
-          <span>Team Leader : {project.manager}</span>
-          
+        <span>Team Leader : {project.manager}</span>
           <span>
             Duration :{" "}
             {`${project.duration} week${project.duration === 1 ? "" : "s"}`}
@@ -77,10 +77,10 @@ const ProjectDetails = ({ project }) => {
         </div>
       </div>
 
-      <div className="project-bottom flex mt-2 gap-5">
+      <div className="project-bottom justify-end flex mt-2 gap-5">
         <button
           onClick={handleUpdate}
-          className="bg-sky-400 text-slate-900 py-2 px-5 rounded shadow-xl hover:bg-sky-50 duration-300"
+          className="text-sky-500  hover:underline"
         >
           Update
         </button>
@@ -95,26 +95,43 @@ const ProjectDetails = ({ project }) => {
       {/* OVERLAY */}
       <div
         onClick={handleOverlay}
-        className={`overlay fixed z-[1] h-screen w-screen bg-slate-900/50 backdrop-blur-sm top-0 left-0 right-0 bottom-0 ${
+        className={`overlay z-[1] h-screen w-screen bg-slate-900/50 backdrop-blur-sm top-0 left-0 right-0 bottom-0 ${
           isOverlayOpen ? "" : "hidden"
         }`}
       ></div>
 
       {/* MODAL */}
       <div
-        className={`update-modal w-[35rem] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-800 p-10 rounded-xl shadow-xl border border-slate-700 z-[2] ${
+        className={`update-modal h-[40rem] w-[35rem] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-800 p-10 rounded-xl shadow-xl border border-slate-700 z-[2] flex flex-col  ${
           isModalOpen ? "" : "hidden"
         }`}
-      >
-        <h2 className="text-4xl font-medium text-sky-400 mb-10 capitalize">
-          Update project
+      > 
+      
+        <h2 className="text-3xl font-bold mb-3 text-sky-400">
+            Update Project
         </h2>
-
-        <ProjectForm
+        <div
+    style={{
+      flex: 1,
+      overflow: 'auto',
+      scrollbarWidth: 'none', 
+      msOverflowStyle: 'none' 
+    }}
+  >
+    <div
+      style={{
+        overflow: 'auto',
+        WebkitOverflowScrolling: 'touch' 
+      }}
+    >
+      <ProjectForm
           project={project}
           setIsModalOpen={setIsModalOpen}
           setIsOverlayOpen={setIsOverlayOpen}
         />
+    </div>
+  </div>
+        
       </div>
     </div>
     

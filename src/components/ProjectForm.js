@@ -31,7 +31,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
     if (!project) {
       // sending post request
       const res = await fetch(
-        `https://project-management-backend-7s6b.onrender.com/api/projects`,
+        `${process.env.REACT_APP_BASE_URL}/api/projects`,
         {
           method: "POST",
           headers: {
@@ -61,6 +61,8 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
         setEmptyFields([]);
         // project post successfully
         dispatch({ type: "CREATE_PROJECT", payload: json });
+        // close modal
+        setIsModalOpen(false);
       }
       return;
     }
@@ -69,7 +71,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
     if (project) {
       // sending patch req
       const res = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/api/projects/${project._id}`,
+        `https://project-management-backend-7s6b.onrender.com/api/projects/${project._id}`,
         {
           method: "PATCH",
           headers: {
@@ -104,14 +106,6 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
 
   return (
     <form onSubmit={handleSubmit} className="project-form flex flex-col gap-5">
-      <h2
-        className={`text-2xl underline font-medium text-sky-400 mb-2 capitalize ${
-          project ? "hidden" : ""
-        }`}
-      >
-        Add a new project
-      </h2>
-
       <div className="form-control flex flex-col gap-2">
         <label
           htmlFor="title"
@@ -153,6 +147,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
           }`}
         />
       </div>
+
       <div className="form-control flex flex-col gap-2">
         <label
           htmlFor="description"
@@ -173,6 +168,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
           }`}
         />
       </div>
+
       <div className="form-control flex flex-col gap-2">
         <label
           htmlFor="budget"
@@ -222,25 +218,28 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
         >
           Team Leader
         </label>
-        <input
-          value={manager}
-          onChange={(e) => setManager(e.target.value)}
-          type="text"
-          placeholder="e.g. Mohamed shakil"
-          id="manager"
-          className={`bg-transparent border py-3 px-5 rounded-lg outline-none focus:border-sky-400 duration-300 ${
-            emptyFields?.includes("manager")
+        <select
+          id="teamOption"
+          className={`bg-transparent text-white border py-3 px-5 rounded-lg outline-none focus:border-sky-400 duration-300 ${
+            emptyFields?.includes("teamOption")
               ? "border-rose-500"
               : "border-slate-500"
           }`}
-        />
+          value={manager}
+          onChange={(e) => setManager(e.target.value)}
+        >
+          <option className="text-black" value="">--Select an option--</option>
+          <option className="text-black" value="ANANYA">ANANYA</option>
+          <option className="text-black" value="ARUN">ARUN</option>
+          <option className="text-black" value="BHARATH">BHARATH</option>
+          <option className="text-black" value="NANDHINI">NANDHINI</option>
+          <option className="text-black" value="SHAKIL">SHAKIL</option>
+        </select>
       </div>
-
-      
 
       <button
         type="submit"
-        className="bg-sky-400 text-slate-900 py-3 px-5  rounded-lg hover:bg-sky-50 duration-300 capitalize"
+        className="bg-sky-400 text-slate-900 py-3 px-5 rounded-lg hover:bg-sky-50 duration-300 capitalize"
       >
         {project ? "Confirm Update" : "Add project"}
       </button>
