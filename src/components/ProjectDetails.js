@@ -7,7 +7,7 @@ import ProjectForm from "./ProjectForm";
 
 const ProjectDetails = ({ project }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+  const [ setIsOverlayOpen] = useState(false);
 
   const { dispatch } = useProjectsContext();
   const { user } = useAuthContext();
