@@ -34,7 +34,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
       // POST request if no project exists
       let res;
       if (!project) {
-        res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/projects`, {
+        res = await fetch(`https://project-management-backend-7s6b.onrender.com/api/projects`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
         });
       } else {
         // PATCH request if updating an existing project
-        res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/projects/${project._id}`, {
+        res = await fetch(`https://project-management-backend-7s6b.onrender.com/api/projects/${project._id}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -82,7 +82,6 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
         setDescription("");
       }
     } catch (error) {
-     
       setError("Failed to submit form");
     } finally {
       // End loading animation
