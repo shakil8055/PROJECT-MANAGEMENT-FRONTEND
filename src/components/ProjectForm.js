@@ -82,7 +82,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
         setDescription("");
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
+     
       setError("Failed to submit form");
     } finally {
       // End loading animation
